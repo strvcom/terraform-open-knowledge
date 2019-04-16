@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# A wrapper binary to avoid having to install Terraform on the user's machine directly and instead
+# run the binary through a temporary Docker container.
+
+# This ensures that whoever works with Terraform on this project they will use the same Terraform
+# version. 👍
+
+TERRAFORM_VERSION="0.11.13"
+TERRAFORM_WORKDIR="$1"
+
+exec docker run \
+  --name local-terraform \
+  --interactive \
+  --tty \
+  --rm \
+  --volume "$(pwd)/infra/${TERRAFORM_WORKDIR}":/mnt/terraform \
+  --volume "${HOME}/.aws":/root/.aws \
+  --workdir /mnt/terraform \
+  --env AWS_PROFILE="${AWS_PROFILE}" \
+  hashicorp/terraform:${TERRAFORM_VERSION} "${@:2}"
