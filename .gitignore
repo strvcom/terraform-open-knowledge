@@ -6,7 +6,6 @@ local.mk
 
 # Generated files
 .nvmrc
-docs
 coverage
 gh-pages
 **/.terraform/plugins
