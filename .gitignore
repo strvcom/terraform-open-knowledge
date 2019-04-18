@@ -9,6 +9,8 @@ local.mk
 docs
 coverage
 gh-pages
+**/.terraform/plugins
+**/.terraform/environment
 
 # Garbage
 *.lerna_backup
