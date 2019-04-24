@@ -1,0 +1,27 @@
+version: 0.2
+env:
+  variables:
+    # Since this content can be easily re-created AND we use CloudFront to distribute the files
+    # there is no need to use the standard storage class - let's use the cheapest one and configure
+    # CloudFront to not re-fetch files from S3 until we manually invalidate them. 🚀
+    S3_STORAGE_CLASS: ONEZONE_IA
+    DEPLOY_DIRECTORY: src/
+
+  # This is how one would use a secret value in CodeBuild. This is equivalent to Encrypted
+  # environment variables in Travis-CI.
+  # parameter-store:
+  #   CONTENTFUL_DELIVERY_TOKEN: '/website/codebuild/something_secret'
+
+phases:
+  install:
+    commands:
+      - echo "faking npm install 🚀"
+
+  build:
+    commands:
+      - echo "faking some webpack stuff and other nonsense 🤷‍♂️"
+
+  post_build:
+    commands:
+      - aws s3 sync "${DEPLOY_DIRECTORY}" "s3://${S3_BUCKET}" --delete --acl "public-read" --storage-class ${S3_STORAGE_CLASS}
+      - aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION} --paths "/*"
