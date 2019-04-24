@@ -10,6 +10,7 @@ coverage
 gh-pages
 **/.terraform/plugins
 **/.terraform/environment
+**/variables.auto.tfvars
 
 # Garbage
 *.lerna_backup
