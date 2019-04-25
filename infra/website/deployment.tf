@@ -123,6 +123,16 @@ resource "aws_codebuild_project" "website" {
   }
 }
 
+# A CloudWatch log group to which CodeBuild will publish the build logs.
+#
+# CodeBuild creates a CloudWatch Log Group where it publishes build logs. This resource is created
+# automatically by CodeBuild, but we still want to manage that resource through Terraform, so we
+# create it manually.
+resource "aws_cloudwatch_log_group" "codebuild" {
+  name              = "/aws/codebuild/${aws_codebuild_project.website.name}"
+  retention_in_days = 30
+}
+
 # And again, allow CodeBuild to interact with other AWS resources in our account by creating a role.
 resource "aws_iam_role" "codebuild" {
   assume_role_policy = "${file("${path.module}/codebuild-role.json")}"
