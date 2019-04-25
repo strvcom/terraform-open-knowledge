@@ -8,6 +8,12 @@ local.mk
 .nvmrc
 coverage
 gh-pages
+
+# Normally you WILL want to commit the state file when you use local state.
+# ⚠️ HOWEVER, you should always prefer a remote state to avoid collisions when multiple people work
+# on the same project.
+**/terraform.tfstate
+
 **/.terraform/plugins
 **/.terraform/environment
 **/variables.auto.tfvars
