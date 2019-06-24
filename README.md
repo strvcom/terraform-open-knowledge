@@ -1,25 +1,25 @@
 ## Introduction
-This repository serves as an online course for learning Terraform made by STRV.
-It’s here to help those who want to use Terraform to "code" infrastructure.
+This repository serves as an online course for learning Terraform. 
+Made by [STRV](https://www.strv.com/), it’s here to help those who want to use Terraform to "code" infrastructure.
 
 #### Goal
-To give you a fundamental understanding of what is Terraform and how to use it on your project.
+To give you a fundamental understanding of what Terraform is, and how to use it in your project.
 
-Presenter in thease session demonstrated the best practices in Terraform based on his experience gained from numerous projects.
+The presenter demonstrated the best practices in Terraform—experience he gained by working on numerous projects.
 
 #### Source
-This repository ("online course") was created and transformed from **Internal workshop at [STRV](https://www.strv.com/)**.
+This online course was created by utilizing material from an **internal workshop held at [STRV](https://www.strv.com/)**.
 
 #### Prerequisites
-Basic knowlage of backend development, basic expercie with cloud (AWS).
+This course requires at least basic knowledge of backend development and basic experience with cloud (AWS).
 
 ## Contents
 
-This repository & course contains 2 sessions (recordings). 
-First session is introduction to terraform with little bit of coding.
-Second lecture is mostly live coding (hands on experience).
+This course contains 2 sessions (recordings).
+The first session is an introduction to Terraform and only includes a bit of coding.
+The second session is mostly live coding (hands-on experience).
 
-Repository contains also all code examples in [/infra/website](/infra/website). Each .tf file with example has description in comment at begining.
+The repository also contains all code examples in [/infra/website](/infra/website). Each .tf file with example has description in comment at begining.
 
 ## Video recordings
 
